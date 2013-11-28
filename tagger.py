@@ -18,18 +18,18 @@ def get_abstract_text(absnode):
     return ' '.join(L)
 
 for fname in dir:
-        fh = open(path + fname)
-        dom = parse(fh)
-        elem = dom.getroot()
-        abstract = elem.find(".//abstract")
-        print("================== OK HERE WE GO ================== "+fname)
-        try:
-                sentences = nltk.sent_tokenize(get_abstract_text(abstract))
-                sentences = [nltk.word_tokenize(sent) for sent in sentences]
-                sentences = [nltk.pos_tag(sent) for sent in sentences]
-                print sentences
-        except:
-                pass
-        print("================== THAT WAS FUN! ==================")
+    fh = open(path + fname)
+    dom = parse(fh)
+    elem = dom.getroot()
+    abstract = elem.find(".//abstract")
+    print("================== OK HERE WE GO ================== "+fname)
+    try:
+            sentences = nltk.sent_tokenize(get_abstract_text(abstract))
+            sentences = [nltk.word_tokenize(sent) for sent in sentences]
+            sentences = [nltk.pos_tag(sent) for sent in sentences]
+            print sentences
+    except:
+            pass
+    print("================== END  ==================")
 
 
